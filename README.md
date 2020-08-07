@@ -37,6 +37,7 @@ If you're on mac or linux, copy/paste the helpers in [tf_helpers.sh](tf_helpers.
 You can use the bash helper to correctly generate your `/terraform` directory:
 
 ```
+# tfgenerator [project-id] [tf-bucket]
 tfgenerator tf-playground-285720 jamsupreme-tf-bucket
 ```
 
