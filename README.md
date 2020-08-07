@@ -47,6 +47,8 @@ tfgenerator tf-playground-285720 jamsupreme-tf-bucket
 
 ## Authenticate with gcloud
 
+**_(TODO: Double check if this step is necessary)_**
+
 1. Run `gcloud auth application-default login` and you'll be able to login
 1. Set the project: `gcloud config set project tf-playground-285720` _(You must use the ID, not name)_
 
