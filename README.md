@@ -24,13 +24,44 @@ We'll do a small practical dive into Terraform with Google Cloud Platform (GCP) 
 1. Enable billing (don't worry, GCP won't bill you after the 12 months expire)
 1. Make a bucket for storing your terraform state
 
-## Authenticate
-
-1. Run `gcloud auth login` and you'll be able to login
-1. Set the project: `gcloud config set project tf-playground-285720` _(You must use the ID, not name)_
-
 Don't worry if you get stuck doing this, we'll go through it together anyway. This guide is also useful: https://www.terraform.io/docs/providers/google/guides/getting_started.html
 
-# Building something
+## Add bash helpers
 
-TODO
+If you're on mac or linux, copy/paste the helpers in [tf_helpers.sh](tf_helpers.sh) into your `~/.bash_profile`
+
+# Initialize Terraform
+
+## Generate a skeleton
+
+You can use the bash helper to correctly generate your `/terraform` directory:
+
+```
+tfgenerator tf-playground-285720 jamsupreme-tf-bucket
+```
+
+## Make service account credentials
+
+1. See instructions at https://cloud.google.com/docs/authentication/production#create_service_account for making a service account
+1. Copy the `.json` file into this directory and rename it to `credentials.json` so git ignores it
+
+## Authenticate with gcloud
+
+1. Run `gcloud auth application-default login` and you'll be able to login
+1. Set the project: `gcloud config set project tf-playground-285720` _(You must use the ID, not name)_
+
+_(If you don't log into the application-default, terraform doesn't correctly initialize)_
+
+## Initialize!
+
+Run the following to initialize your Terraform:
+
+```
+cd terraform
+# shorthand: tfinit dev
+terraform init -backend-config=config/backend-dev.conf
+```
+
+# Build something basic
+
+Let's make another bucket, but this time do it with Terraform
