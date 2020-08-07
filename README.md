@@ -43,7 +43,7 @@ tfgenerator tf-playground-285720 jamsupreme-tf-bucket
 ## Make service account credentials
 
 1. See instructions at https://cloud.google.com/docs/authentication/production#create_service_account for making a service account
-1. Copy the `.json` file into this directory and rename it to `credentials.json` so git ignores it
+1. Copy the `.json` file into the `/terraform` directory and rename it to `credentials.json` so git ignores it
 
 ## Authenticate with gcloud
 
@@ -64,4 +64,16 @@ terraform init -backend-config=config/backend-dev.conf
 
 # Build something basic
 
-Let's make another bucket, but this time do it with Terraform
+Let's make another bucket, but this time do it with Terraform:
+```
+resource "google_storage_bucket" "sample-bucket" {
+  name          = "jamsupreme-another-bucket-vcool"
+  force_destroy = true
+}
+```
+
+Now let's run:
+```
+# shorthand: tfapply dev
+terraform apply -var-file="config/dev.tfvars"
+```
