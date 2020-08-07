@@ -16,11 +16,11 @@ We'll do a small practical dive into Terraform with Google Cloud Platform (GCP) 
 
 1. Make a new gmail account so you can safely make new stuff in isolation
 1. Visit https://cloud.google.com/
-1. Make a new project (e.g. "Terraform-playground"
+1. Make a new project (e.g. "Terraform-playground")
 
 ## Make a bucket in the GCP console
 
-1. Visit GCS (Google Cloud Storage): TODO link
+1. Visit GCS (Google Cloud Storage): https://console.cloud.google.com/storage/browser
 1. Enable billing (don't worry, GCP won't bill you after the 12 months expire)
 1. Make a bucket for storing your terraform state
 
